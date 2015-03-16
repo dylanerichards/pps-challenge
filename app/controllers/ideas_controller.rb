@@ -24,6 +24,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
+        current_user.ideas << @idea
         format.html { redirect_to category_idea_path(@category, @idea), notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
       else
@@ -66,6 +67,6 @@ class IdeasController < ApplicationController
     end
 
     def idea_params
-      params.require(:idea).permit(:title, :body, :category_id)
+      params.require(:idea).permit(:title, :body, :category_id, :anonymous)
     end
 end

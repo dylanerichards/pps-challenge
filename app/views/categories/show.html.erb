@@ -22,8 +22,14 @@ Filters
   <div class="idea-button">
     <%= link_to idea.title, category_idea_path(@category, idea) %>
 
+    <div><%= link_to "Upvote #{idea.upvotes}", upvote_path(idea), class: "upvote" %></div>
     <br>
 
-    <%= link_to "Upvote #{idea.upvotes}", upvote_path(idea), class: "upvote" %>
+
+    <% unless idea.anonymous == true %>
+      <% if idea.user %>
+        <small class="idea-user-email">By: <%= idea.user.email %></small>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
