@@ -14,4 +14,5 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  get "upvote/:id", to: "ideas#upvote", as: "upvote"
 end

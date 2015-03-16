@@ -53,6 +53,13 @@ class IdeasController < ApplicationController
     end
   end
 
+  def upvote
+    idea = Idea.find(params[:id])
+    idea.upvote
+    idea.save
+    redirect_to :back
+  end
+
   private
     def set_idea
       @idea = Idea.find(params[:id])

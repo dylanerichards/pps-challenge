@@ -4,4 +4,8 @@ class Idea < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :user
+
+  def upvote
+    self.upvotes += 1
+  end
 end
