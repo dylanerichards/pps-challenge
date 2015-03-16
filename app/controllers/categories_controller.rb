@@ -55,6 +55,11 @@ class CategoriesController < ApplicationController
     @ideas = @category.ideas.where(status: "pending")
   end
 
+  def complete
+    @category = Category.find(params[:id])
+    @ideas = @category.ideas.where(status: "complete")
+  end
+
   private
     def set_category
       @category = Category.find(params[:id])
