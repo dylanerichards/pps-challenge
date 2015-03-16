@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   get "upvote/:id", to: "ideas#upvote", as: "upvote"
+  get "categories/:id/pending", to: "categories#pending", as: "pending"
 end
