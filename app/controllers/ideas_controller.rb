@@ -2,6 +2,7 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   def index
+    @category = Category.find(params[:category_id])
     @ideas = Idea.all
   end
 
@@ -9,18 +10,21 @@ class IdeasController < ApplicationController
   end
 
   def new
+    @category = Category.find(params[:category_id]) if params[:category_id]
     @idea = Idea.new
   end
 
   def edit
+    @category = Category.find(params[:category_id]) if params[:category_id]
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @category = Category.find(params[:category_id]) if params[:category_id]
+    @idea = @category.ideas.build(idea_params)
 
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
+        format.html { redirect_to category_idea_path(@category, @idea), notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
       else
         format.html { render :new }

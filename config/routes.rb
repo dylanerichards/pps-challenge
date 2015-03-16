@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :ideas
+  resources :categories do
+    resources :ideas
+  end
 
-  resources :categories
-
-  root "pages#home"
+  root "categories#index"
 
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resource :session, controller: 'clearance/sessions', only: [:create]

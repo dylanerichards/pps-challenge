@@ -16,9 +16,12 @@
         <td><%= idea.title %></td>
         <td><%= idea.body %></td>
         <td><%= idea.category.name %></td>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if params[:category_id] %>
+          <%= link_to idea.title, category_idea_path(@category, idea) %>
+        <% else %>
+          <td><%= link_to 'Show', idea %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Idea', new_idea_path %>
+<%= link_to 'New Idea', new_category_idea_path %>

@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @idea.title %></h1>
+
+Category: <%= @idea.category.name %>
+
+<br>
+<br>
 
 <p>
-  <strong>Title:</strong>
-  <%= @idea.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
   <%= @idea.body %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @idea.category.name %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+<%= link_to 'Back', category_path(@idea.category) %>
