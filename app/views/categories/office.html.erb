@@ -1,0 +1,18 @@
+<h1>Ideas for your office</h1>
+<br>
+
+<%= link_to "<< back", :back %>
+
+<br>
+<br>
+
+<% @ideas.each do |idea| %>
+  <div class="idea-button">
+    <%= link_to idea.title, category_idea_path(@category, idea) %>
+
+    <br>
+
+    <%= link_to "Upvote #{idea.upvotes}", upvote_path(idea), class: "upvote" %>
+  </div>
+<% end %>
+

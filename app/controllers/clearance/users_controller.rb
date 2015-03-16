@@ -1,26 +1,3 @@
-# def user_from_params
-#   user_params = params[:user] || Hash.new
-#   email = user_params.delete(:email)
-#   password = user_params.delete(:password)
-
-#   Clearance.configuration.user_model.new(user_params).tap do |user|
-#     user.email = email
-#     user.password = password
-#     user.office = office
-#   end
-# end
-
-# def permit_params
-#   params.require (:user).permit(:email, :password, :office)
-# end
-
-# def create
-#   redirect_to root_path
-# end
-
-# def new
-#   render "users/new"
-# end
 class Clearance::UsersController < Clearance::BaseController
   before_filter :redirect_signed_in_users, only: [:create, :new]
   skip_before_filter :require_login, only: [:create, :new]

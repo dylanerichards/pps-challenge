@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   get "categories/:id/pending", to: "categories#pending", as: "pending"
   get "categories/:id/complete", to: "categories#complete", as: "complete"
+  get "categories/:id/office", to: "categories#office", as: "office"
 end

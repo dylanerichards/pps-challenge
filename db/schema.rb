@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316212029) do
+ActiveRecord::Schema.define(version: 20150316213447) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20150316212029) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "upvotes",     default: 0
-    t.string   "status"
+    t.string   "status",      default: "pending"
     t.boolean  "anonymous"
+    t.string   "office"
   end
 
   add_index "ideas", ["category_id"], name: "index_ideas_on_category_id"

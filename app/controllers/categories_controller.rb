@@ -60,6 +60,11 @@ class CategoriesController < ApplicationController
     @ideas = @category.ideas.where(status: "complete")
   end
 
+  def office
+    @category = Category.find(params[:id])
+    @ideas = @category.ideas.where(office: current_user.office)
+  end
+
   private
     def set_category
       @category = Category.find(params[:id])
