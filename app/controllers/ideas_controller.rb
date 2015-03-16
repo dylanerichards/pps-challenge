@@ -35,9 +35,10 @@ class IdeasController < ApplicationController
   end
 
   def update
+    @category = Category.find(params[:id])
     respond_to do |format|
       if @idea.update(idea_params)
-        format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
+        format.html { redirect_to category_idea_path(@category, @idea), notice: 'Idea was successfully updated.' }
         format.json { render :show, status: :ok, location: @idea }
       else
         format.html { render :edit }
@@ -67,6 +68,6 @@ class IdeasController < ApplicationController
     end
 
     def idea_params
-      params.require(:idea).permit(:title, :body, :category_id, :anonymous)
+      params.require(:idea).permit(:title, :body, :category_id, :anonymous, :status)
     end
 end
