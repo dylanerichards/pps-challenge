@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @ideas = @category.ideas.order("upvotes").reverse
+    @ideas = @category.ideas.where(office: "").order("upvotes").reverse
   end
 
   def new
