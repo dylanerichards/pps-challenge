@@ -12,7 +12,7 @@
 <% @category.ideas.each do |idea| %>
   <div class="idea-button">
     <%= link_to idea.title, category_idea_path(@category, idea) %>
-    <div><%= link_to "Upvote", upvote_path(idea) %></div>
+    <div class="upvote"><%= link_to "Upvote #{idea.upvotes}", upvote_path(idea) %></div>
   </div>
 <% end %>
 
