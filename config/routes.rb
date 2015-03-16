@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   root "pages#home"
 
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
