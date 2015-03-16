@@ -1,2 +1,20 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+.category-button {
+  height: 58px;
+  width: 212px;
+  display: table;
+  table-layout: fixed;
+  font-size: 20px;
+  margin-top: 1px;
+  background-color: #3f7cac;
+  text-align: center;
+
+  a {
+    color: #ffffff;
+    position: relative;
+    top: 15px;
+  }
+
+  a:hover {
+    color: #e2f89c;
+  }
+}
