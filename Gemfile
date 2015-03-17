@@ -15,6 +15,7 @@ gem 'spring',        group: :development
 
 gem 'clearance'
 gem 'bootstrap-sass', '~> 3.3.3'
+# gem 'client_side_validations'
 
 group :production do
   gem 'rails_12factor'

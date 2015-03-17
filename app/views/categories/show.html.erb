@@ -4,7 +4,11 @@
 
 <h1><%= @category.name %></h1>
 
-<%= link_to "New Idea", new_category_idea_path(@category) %>
+<%# <%= link_to "New Idea", new_category_idea_path(@category) %1> %>
+
+<button data-toggle="modal" data-target="#new-post-modal">Add Idea</button>
+
+
 
 <br>
 <br>
@@ -34,3 +38,50 @@ Filters
     <% end %>
   </div>
 <% end %>
+
+<div id="new-post-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-title">
+      <div class="modal-header">
+        <h4>Add New Idea</h4>
+      </div>
+    </div>
+    <%= form_for [@category, @idea] do |f| %>
+      <% if @idea.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+          <ul>
+            <% @idea.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+      </div>
+      <div class="field">
+        <%= f.label :status %><br>
+        <%= f.text_field :status %>
+      </div>
+      <div class="field">
+        <%= f.label :office %><br>
+        <%= f.text_field :office %>
+      </div>
+      <div class="field">
+        <%= f.label :anonymous %><br>
+        <%= f.check_box :anonymous %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
