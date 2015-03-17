@@ -1,4 +1,5 @@
 class Idea < ActiveRecord::Base
+  default_scope -> { order("upvotes DESC") }
   validates_presence_of :title
   validates_presence_of :body
 
